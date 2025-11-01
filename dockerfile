@@ -1,12 +1,19 @@
+# Use official PHP image with Apache
 FROM php:8.2-apache
 
-# Copy all files to web root
-COPY . /var/www/html/
+# Install mysqli and PDO MySQL extensions
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Enable Apache mod_rewrite (optional)
+# Enable Apache mod_rewrite (optional but recommended)
 RUN a2enmod rewrite
 
-# Expose port 80 for Render
+# Copy all files to the Apache root directory
+COPY . /var/www/html/
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Expose port 80 (Render uses this)
 EXPOSE 80
 
 # Start Apache
