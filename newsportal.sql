@@ -28,13 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbladmin` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `AdminUserName` varchar(255) DEFAULT NULL,
   `AdminPassword` varchar(255) DEFAULT NULL,
   `AdminEmailId` varchar(255) DEFAULT NULL,
   `userType` int(11) DEFAULT NULL,
   `CreationDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `UpdationDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -58,7 +59,7 @@ CREATE TABLE `tblcategory` (
   `CategoryName` varchar(200) DEFAULT NULL,
   `Description` mediumtext DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL ,
   `Is_Active` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -112,7 +113,7 @@ CREATE TABLE `tblpages` (
   `PageTitle` mediumtext DEFAULT NULL,
   `Description` longtext DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `UpdationDate` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -136,7 +137,7 @@ CREATE TABLE `tblposts` (
   `SubCategoryId` int(11) DEFAULT NULL,
   `PostDetails` longtext CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL ,
   `Is_Active` int(1) DEFAULT NULL,
   `PostUrl` mediumtext DEFAULT NULL,
   `PostImage` varchar(255) DEFAULT NULL,
@@ -169,7 +170,7 @@ CREATE TABLE `tblsubcategory` (
   `Subcategory` varchar(255) DEFAULT NULL,
   `SubCatDescription` mediumtext DEFAULT NULL,
   `PostingDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL,
   `Is_Active` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
