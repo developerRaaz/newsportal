@@ -1,0 +1,17 @@
+{
+    "name": "hp/newsportal",
+    "autoload": {
+        "psr-4": {
+            "Hp\\Newsportal\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sarfaraz",
+            "email": "sarfaraz123@gmail.com"
+        }
+    ],
+    "require": {
+        "php":">=8.0.0"
+    }
+}
